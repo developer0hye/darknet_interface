@@ -68,6 +68,7 @@ int classify(image im, float thresh)
 	{
 		free_image(r);
 	}
+	
 	free_image(im);
 	free(indexes);
 	return idx;
@@ -168,6 +169,7 @@ float* detect(image im, float thresh, float hier_thresh, int* num_output_class)
     free_detections(dets, nboxes);
     free_image(im);
     free_image(sized);
+    free(selected_detections);
     // free_ptrs(names, net.layers[net.n - 1].classes);
     
     return detections;
@@ -270,6 +272,7 @@ float* segment(image im, float thresh, float hier_thresh, int* num_output_class)
     free_detections(dets, nboxes);
     free_image(im);
     free_image(sized);
+    free(selected_detections);
     // free_ptrs(names, net.layers[net.n - 1].classes);
 
     return detections;
